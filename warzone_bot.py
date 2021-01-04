@@ -20,7 +20,15 @@ async def drop_location(ctx):
     lines = open('verdansk_locations.txt').read().splitlines()
     myline = random.choice(lines)
 
-    await ctx.send(myline + ' looks like a good place to drop.')
+    drop_response = [
+        (myline + ' looks like a good place to drop.'), 
+        (myline + '? Looks more like dubcity to me.'),
+        ('I\'d reccomend dropping at ' + myline)
+    ]
+
+    response = random.choice(drop_response)
+
+    await ctx.send(response)
 
 
 # @bot.command(name='gulagchances', help='You never know what your chances of getting out of Gulag are, allow Warzone bot to help with that.')
